@@ -12,7 +12,11 @@ cmake_minimum_required(VERSION 3.4.1)
 set(PaddleLite_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../PaddleLite")
 include_directories(${PaddleLite_DIR}/cxx/include)
 
+# is this wrong??
 set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../OpenCV/sdk/native/jni")
+get_filename_component(OpenCV_DIR_REL "${OpenCV_DIR}" ABSOLUTE)
+message("OpenCV_DIR_REL: ${OpenCV_DIR_REL}")
+
 find_package(OpenCV REQUIRED)
 message(STATUS "OpenCV libraries: ${OpenCV_LIBS}")
 include_directories(${OpenCV_INCLUDE_DIRS})

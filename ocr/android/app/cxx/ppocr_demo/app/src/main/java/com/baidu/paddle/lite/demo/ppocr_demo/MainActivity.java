@@ -4,10 +4,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -20,6 +18,7 @@ import android.widget.Toast;
 
 import com.baidu.paddle.lite.demo.common.CameraSurfaceView;
 import com.baidu.paddle.lite.demo.common.Utils;
+import com.baidu.paddle.lite.demo.object_detection.R;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -72,17 +71,15 @@ public class MainActivity extends Activity implements View.OnClickListener, Came
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_switch:
-                svPreview.switchCamera();
-                break;
-            case R.id.btn_shutter:
-                SimpleDateFormat date = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-                synchronized (this) {
-                    savedImagePath = Utils.getDCIMDirectory() + File.separator + date.format(new Date()).toString() + ".png";
-                }
-                Toast.makeText(MainActivity.this, "Save snapshot to " + savedImagePath, Toast.LENGTH_SHORT).show();
-                break;
+        int id = v.getId();
+        if (id == R.id.btn_switch) {
+            svPreview.switchCamera();
+        } else if (id == R.id.btn_shutter) {
+            SimpleDateFormat date = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+            synchronized (this) {
+                savedImagePath = Utils.getDCIMDirectory() + File.separator + date.format(new Date()) + ".png";
+            }
+            Toast.makeText(MainActivity.this, "Save snapshot to " + savedImagePath, Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -18,6 +18,7 @@ Paddle Lite 预测库版本一样的 NDK
  2. cd `Paddle-Lite-Demo/libs` 目录，运行 `download.sh` 脚本，下载所需要的 Paddle Lite 预测库
  3. cd `Paddle-Lite-Demo/ocr/assets` 目录，运行 `download.sh` 脚本，下载OPT 优化后模型、测试图片和标签文件
  4. cd `Paddle-Lite-Demo/ocr/Android/app/c++/ppocr_demo` 目录，运行 `prepare.sh` 脚本， 将模型、测试图片等资源文件拷贝到当前工程中
+    run ./gradlew downloadAndExtractArchives to download the dependencies libs.
  5. 用 Android Studio 打开 ppocr_demo 工程
  6. 手机连接电脑，打开 USB 调试和文件传输模式，并在 Android Studio 上连接自己的手机设备（手机需要开启允许从 USB 安装软件权限）
  
@@ -342,3 +343,7 @@ Paddle Lite 预测库版本一样的 NDK
 
 ## 性能优化方法
 如果你觉得当前性能不符合需求，想进一步提升模型性能，可参考[首页中性能优化文档](/README.md)完成性能优化。
+
+
+# fix build
+libs/android/opencv4.1.0
