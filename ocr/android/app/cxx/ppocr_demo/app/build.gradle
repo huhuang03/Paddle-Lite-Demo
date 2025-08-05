@@ -3,6 +3,7 @@ import java.security.MessageDigest
 apply plugin: 'com.android.application'
 
 android {
+    namespace "com.baidu.paddle.lite.demo.object_detection"
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.baidu.paddle.lite.demo.object_detection"
